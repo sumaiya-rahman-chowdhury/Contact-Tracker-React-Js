@@ -10,7 +10,7 @@ import{
 import './index.css'
 import Root, { action } from './root'
 import ErrorPage from './error-page'
-import Contact from './contacts'
+import Contact, { loader } from './contacts'
 import { loader as rootLoader } from './root'
 
 const router = createBrowserRouter([
@@ -24,7 +24,8 @@ const router = createBrowserRouter([
     children:[
       {
         path:"contacts/:contactId",
-        element:<Contact></Contact>
+        element:<Contact></Contact>,
+        loader:loader
       }
     ]
   },

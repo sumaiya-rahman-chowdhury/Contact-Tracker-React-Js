@@ -1,14 +1,16 @@
-import { Form } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
+import { getContact } from "./contact";
 
 export default function Contact() {
-    const contact = {
-        first: "Tomal",
-        last: "Shikdar",
-        avatar: "https://robohash.org/you.png?size=200x200",
-        twitter: "Tomal_Shikdar",
-        notes: "Some Notes",
-        favourate: true
-    }
+    // const contact = {
+    //     first: "Tomal",
+    //     last: "Shikdar",
+    //     avatar: "https://robohash.org/you.png?size=200x200",
+    //     twitter: "Tomal_Shikdar",
+    //     notes: "Some Notes",
+    //     favourate: true
+    // }
+    const {contact} = useLoaderData() 
     return (
         <>
             <div id="contact">
@@ -55,6 +57,16 @@ export default function Contact() {
         </>
     )
 }
+
+export async function loader({params}) {
+    const contact = await getContact(params.contactId)
+    return {contact}
+}
+
+
+
+
+
 
 function Favourate ({contact}){
     const favourate = contact.favourate ;
