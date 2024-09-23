@@ -9,9 +9,6 @@ export async function action({request,params}) {
     return redirect(`/contacts/${params.contactId}`);    
 }
 
-
-
-
 export default function EditContacts() {
     const { contact } = useLoaderData();
 
@@ -27,11 +24,11 @@ export default function EditContacts() {
                     defaultValue={contact?.first}
                 />
                 <input
-                    placeholder="First"
-                    aria-label="First name"
+                    placeholder="Last"
+                    aria-label="Last name"
                     type="text"
-                    name="first"
-                    defaultValue={contact?.first}
+                    name="last"
+                    defaultValue={contact?.last}
                 />
             </p>
             <label>
