@@ -9,15 +9,23 @@ import{
 // import App from './App.jsx'
 import './index.css'
 import Root from './root'
+import ErrorPage from './error-page'
+import Contact from './contacts'
 
 
 const router = createBrowserRouter([
 
   {
     path:"/",
-    element:<Root></Root>
-  }
-
+    element:<Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
+    children:[
+      {
+        path:"contacts/:contactId",
+        element:<Contact></Contact>
+      }
+    ]
+  },
 ])
 
 createRoot(document.getElementById('root')).render(
